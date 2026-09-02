@@ -1,5 +1,5 @@
 import PageHeader from '../components/PageHeader'
-
+import Card from '../components/Card'
 function SettingsPage() {
   return (
     <main>
@@ -8,10 +8,10 @@ function SettingsPage() {
         description="Manage your application preferences and account settings."
       />
 
-      <section>
+      <Card>
         <h2>Settings coming soon</h2>
         <p>Configuration options will be available here as the platform evolves.</p>
-      </section>
+      </Card>
     </main>
   )
 }

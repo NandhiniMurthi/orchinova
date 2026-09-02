@@ -38,7 +38,11 @@
   background-color: #f1f5f9;
   color: #0f172a;
 }
-
+.app-navigation a.active {
+  background-color: #e2e8f0;
+  color: #0f172a;
+  font-weight: 600;
+}
 .app-content {
   padding: 32px;
 }

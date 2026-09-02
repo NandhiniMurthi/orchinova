@@ -1,5 +1,5 @@
 import PageHeader from '../components/PageHeader'
-
+import Card from '../components/Card'
 function WorkflowsPage() {
   return (
     <main>
@@ -8,10 +8,10 @@ function WorkflowsPage() {
         description="Create and manage your workflow automations."
       />
 
-      <section>
+      <Card>
         <h2>No workflows yet</h2>
         <p>Create your first workflow to get started.</p>
-      </section>
+      </Card>
     </main>
   )
 }

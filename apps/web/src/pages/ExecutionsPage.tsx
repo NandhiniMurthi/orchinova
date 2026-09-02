@@ -1,5 +1,5 @@
 import PageHeader from '../components/PageHeader'
-
+import Card from '../components/Card'
 function ExecutionsPage() {
   return (
     <main>
@@ -8,10 +8,10 @@ function ExecutionsPage() {
         description="Monitor and review workflow execution activity."
       />
 
-      <section>
+      <Card>
         <h2>No executions yet</h2>
         <p>Workflow execution history will appear here.</p>
-      </section>
+      </Card>
     </main>
   )
 }

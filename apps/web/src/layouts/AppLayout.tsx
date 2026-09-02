@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 import './AppLayout.css'
 
 function AppLayout() {
@@ -10,10 +10,10 @@ function AppLayout() {
         </Link>
 
         <nav className="app-navigation" aria-label="Main navigation">
-          <Link to="/">Dashboard</Link>
-          <Link to="/workflows">Workflows</Link>
-          <Link to="/executions">Executions</Link>
-          <Link to="/settings">Settings</Link>
+          <NavLink to="/">Dashboard</NavLink>
+          <NavLink to="/workflows">Workflows</NavLink>
+          <NavLink to="/executions">Executions</NavLink>
+          <NavLink to="/settings">Settings</NavLink>
         </nav>
       </aside>
 
@@ -23,5 +23,5 @@ function AppLayout() {
     </div>
   )
 }
-
+ 
 export default AppLayout

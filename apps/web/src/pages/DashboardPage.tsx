@@ -1,3 +1,4 @@
+import Card from '../components/Card'
 function DashboardPage() {
   return (
     <main>
@@ -8,10 +9,10 @@ function DashboardPage() {
         </p>
       </header>
 
-      <section>
+      <Card>
         <h2>Get started</h2>
         <p>You have not created any workflows yet.</p>
-      </section>
+      </Card>
     </main>
   )
 }
