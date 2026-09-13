@@ -11,7 +11,7 @@ function AppLayout() {
 
         <nav className="app-navigation" aria-label="Main navigation">
           <NavLink to="/">Dashboard</NavLink>
-          <NavLink to="/workflows">Workflows</NavLink>
+          <NavLink to="/workflows" end={false}>Workflows</NavLink>
           <NavLink to="/executions">Executions</NavLink>
           <NavLink to="/settings">Settings</NavLink>
         </nav>

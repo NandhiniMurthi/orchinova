@@ -1,0 +1,37 @@
+.dashboard-action {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  background-color: #0f172a;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.dashboard-action:hover {
+  background-color: #1e293b;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.dashboard-stats h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.dashboard-stats p {
+  margin: 0;
+  color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+}
