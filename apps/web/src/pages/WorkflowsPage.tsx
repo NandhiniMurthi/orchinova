@@ -1,5 +1,7 @@
 import PageHeader from '../components/PageHeader'
 import Card from '../components/Card'
+import EmptyState from '../components/EmptyState'
+import { Link } from 'react-router-dom'
 function WorkflowsPage() {
   return (
     <main>
@@ -7,11 +9,15 @@ function WorkflowsPage() {
         title="Workflows"
         description="Create and manage your workflow automations."
       />
-
+    <div className="page-actions">
+  <Link to="/workflows/new">Create workflow</Link>
+</div>
       <Card>
-        <h2>No workflows yet</h2>
-        <p>Create your first workflow to get started.</p>
-      </Card>
+       <EmptyState
+  title="No workflows yet"
+  description="Create your first workflow to automate a process."
+  action={<Link to="/workflows/new">Create workflow</Link>}
+/></Card>
     </main>
   )
 }

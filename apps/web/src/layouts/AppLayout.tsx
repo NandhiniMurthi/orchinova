@@ -1,6 +1,6 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import './AppLayout.css'
-
+import { navigationItems } from '../routes/navigation'
 function AppLayout() {
   return (
     <div className="app-layout">
@@ -10,14 +10,15 @@ function AppLayout() {
         </Link>
 
         <nav className="app-navigation" aria-label="Main navigation">
-          <NavLink to="/">Dashboard</NavLink>
-          <NavLink to="/workflows" end={false}>Workflows</NavLink>
-          <NavLink to="/executions">Executions</NavLink>
-          <NavLink to="/settings">Settings</NavLink>
+          {navigationItems.map((item) => (
+  <NavLink key={item.path} to={item.path} end={item.path === '/'}>
+    {item.label}
+  </NavLink>
+))}
         </nav>
       </aside>
 
-      <main className="app-content">
+      <main className="app-main">
         <Outlet />
       </main>
     </div>

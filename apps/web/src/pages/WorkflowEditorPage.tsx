@@ -1,5 +1,6 @@
 import PageHeader from '../components/PageHeader'
 import Card from '../components/Card'
+import { Link } from 'react-router-dom'
 function WorkflowEditorPage() {
   return (
     <main>
@@ -10,8 +11,9 @@ function WorkflowEditorPage() {
 
       <Card>
         <h2>Workflow editor coming soon</h2>
-        <p>The visual workflow builder will be introduced in a later phase.</p>
+        <p>Workflow configuration and editing will be available here.</p>
       </Card>
+      <Link to="/workflows">Back to workflows</Link>
     </main>
   )
 }

@@ -9,8 +9,8 @@ function SettingsPage() {
       />
 
       <Card>
-        <h2>Settings coming soon</h2>
-        <p>Configuration options will be available here as the platform evolves.</p>
+        <h2>Application settings</h2>
+<p>Configuration options for Orchinova will appear here.</p>
       </Card>
     </main>
   )

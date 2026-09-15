@@ -66,3 +66,14 @@
     padding: 24px 16px;
   }
 }
+
+.app-main {
+  min-width: 0;
+  padding: 32px;
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    padding: 24px 16px;
+  }
+}

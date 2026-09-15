@@ -1,5 +1,6 @@
 import PageHeader from '../components/PageHeader'
 import Card from '../components/Card'
+import EmptyState from '../components/EmptyState'
 function ExecutionsPage() {
   return (
     <main>
@@ -9,8 +10,10 @@ function ExecutionsPage() {
       />
 
       <Card>
-        <h2>No executions yet</h2>
-        <p>Workflow execution history will appear here.</p>
+        <EmptyState
+  title="No executions yet"
+  description="Workflow execution history will appear here once workflows are run."
+/>
       </Card>
     </main>
   )
