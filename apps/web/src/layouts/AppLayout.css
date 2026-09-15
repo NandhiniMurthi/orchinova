@@ -71,6 +71,11 @@
   min-width: 0;
   padding: 32px;
 }
+.app-main > * {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 @media (max-width: 768px) {
   .app-main {
