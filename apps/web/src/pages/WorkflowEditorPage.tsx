@@ -10,8 +10,14 @@ function WorkflowEditorPage() {
       />
 
       <Card>
-        <h2>Workflow editor coming soon</h2>
-        <p>Workflow configuration and editing will be available here.</p>
+       <div>
+          <h2>New Workflow</h2>
+          <p>Build your workflow by connecting nodes together.</p>
+        </div>
+
+        <div>
+          <p>Workflow canvas will appear here.</p>
+        </div>
       </Card>
       <Link to="/workflows">Back to workflows</Link>
     </main>
