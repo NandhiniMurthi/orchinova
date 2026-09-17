@@ -19,7 +19,7 @@ function AppRoutes() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/workflows" element={<WorkflowsPage />} />
-          <Route path="/workflows/new" element={<NewWorkflowPage />} />
+          <Route path="/workflows/new" element={<WorkflowEditorPage />} />
           <Route path="/workflows/:id" element={<WorkflowEditorPage />} />
           <Route path="/executions" element={<ExecutionsPage />} />
           <Route path="/settings" element={<SettingsPage />} />
