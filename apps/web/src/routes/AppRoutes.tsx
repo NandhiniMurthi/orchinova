@@ -4,7 +4,6 @@ import DashboardPage from '../pages/DashboardPage'
 import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
 import WorkflowsPage from '../pages/WorkflowsPage'
-import NewWorkflowPage from '../pages/NewWorkflowPage'
 import WorkflowEditorPage from '../pages/WorkflowEditorPage'
 import ExecutionsPage from '../pages/ExecutionsPage'
 import SettingsPage from '../pages/SettingsPage'
@@ -19,7 +18,7 @@ function AppRoutes() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/workflows" element={<WorkflowsPage />} />
-          <Route path="/workflows/new" element={<WorkflowEditorPage />} />
+          <Route path="/workflows/new" element={<WorkflowEditorPage  />} />
           <Route path="/workflows/:id" element={<WorkflowEditorPage />} />
           <Route path="/executions" element={<ExecutionsPage />} />
           <Route path="/settings" element={<SettingsPage />} />
