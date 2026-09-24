@@ -3,7 +3,6 @@ import Card from '../components/Card'
 import WorkflowCanvas from '../components/workflow/WorkflowCanvas'
 import { Link } from 'react-router-dom'
 
-
 function WorkflowEditorPage() {
   return (
     <main>
@@ -13,13 +12,12 @@ function WorkflowEditorPage() {
       />
 
       <Card>
-       
-          <h2>New Workflow</h2>
-          <p>Build your workflow by connecting nodes together.</p>
+        <h2>New Workflow</h2>
+        <p>Build your workflow by connecting nodes together.</p>
 
-      <WorkflowCanvas />
-      
-      <Link to="/workflows">Back to workflows</Link>
+        <WorkflowCanvas />
+
+        <Link to="/workflows">Back to workflows</Link>
       </Card>
     </main>
   )

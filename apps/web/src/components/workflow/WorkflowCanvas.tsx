@@ -5,36 +5,18 @@ import {
   Controls,
   ReactFlow,
   useEdgesState,
-  useNodesState,
   type Connection,
   type Edge,
-  type Node,
 } from '@xyflow/react'
 
 import '@xyflow/react/dist/style.css'
 import './WorkflowCanvas.css'
 
-type WorkflowFlowNode = Node<{ label: string }>
+type WorkflowCanvasProps = {
+  nodes: WorkflowFlowNode[]
+  onNodesChange: OnNodesChange<WorkflowFlowNode>
+}
 
-const initialNodes: WorkflowFlowNode[] = [
-  {
-    id: 'trigger-1',
-    type: 'input',
-    position: { x: 100, y: 100 },
-    data: { label: 'Trigger' },
-  },
-  {
-    id: 'http-1',
-    position: { x: 400, y: 100 },
-    data: { label: 'HTTP Request' },
-  },
-  {
-    id: 'transform-1',
-    type: 'output',
-    position: { x: 700, y: 100 },
-    data: { label: 'Transform' },
-  },
-]
 
 const initialEdges: Edge[] = [
   {
@@ -49,8 +31,10 @@ const initialEdges: Edge[] = [
   },
 ]
 
-function WorkflowCanvas() {
-  const [nodes, , onNodesChange] = useNodesState(initialNodes)
+function WorkflowCanvas({
+  nodes,
+  onNodesChange,
+}: WorkflowCanvasProps) {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
 
   const onConnect = useCallback(
@@ -60,21 +44,21 @@ function WorkflowCanvas() {
     [setEdges],
   )
 
-   return (
-  <div className="workflow-canvas">
-    <ReactFlow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      fitView
-    >
-      <Background />
-      <Controls />
-    </ReactFlow>
-  </div>
-)
+  return (
+    <div className="workflow-canvas">
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        fitView
+      >
+        <Background />
+        <Controls />
+      </ReactFlow>
+    </div>
+  )
 }
 
 export default WorkflowCanvas
