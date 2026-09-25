@@ -18,9 +18,9 @@ function WorkflowEditorPage() {
   const newNode: WorkflowFlowNode = {
     id: workflowNode.id,
     position: {
-      x: 100 + nodes.length * 50,
-      y: 100 + nodes.length * 50,
-    },
+  x: 100 + (nodes.length % 3) * 250,
+  y: 100 + Math.floor(nodes.length / 3) * 150,
+},
     data: {
       label: workflowNode.name,
     },

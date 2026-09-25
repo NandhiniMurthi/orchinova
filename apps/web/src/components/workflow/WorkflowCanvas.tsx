@@ -20,18 +20,7 @@ type WorkflowCanvasProps = {
 }
 
      
-const initialEdges: Edge[] = [
-  {
-    id: 'trigger-http',
-    source: 'trigger-1',
-    target: 'http-1',
-  },
-  {
-    id: 'http-transform',
-    source: 'http-1',
-    target: 'transform-1',
-  },
-]
+const initialEdges: Edge[] = []
 
 function WorkflowCanvas({
   nodes,
