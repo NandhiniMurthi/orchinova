@@ -17,6 +17,7 @@ type WorkflowFlowNode = Node<{ label: string }>
 type WorkflowCanvasProps = {
   nodes: WorkflowFlowNode[]
   onNodesChange: OnNodesChange<WorkflowFlowNode>
+  onNodeSelect: (nodeId: string) => void
 }
 
      
@@ -25,6 +26,7 @@ const initialEdges: Edge[] = []
 function WorkflowCanvas({
   nodes,
   onNodesChange,
+  onNodeSelect
 }: WorkflowCanvasProps) {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
 
@@ -34,7 +36,12 @@ function WorkflowCanvas({
     },
     [setEdges],
   )
-
+const onNodeClick = useCallback(
+  (_event: React.MouseEvent, node: WorkflowFlowNode) => {
+    onNodeSelect(node.id)
+  },
+  [onNodeSelect],
+)
   return (
     <div className="workflow-canvas">
       <ReactFlow
@@ -43,6 +50,8 @@ function WorkflowCanvas({
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+          onNodeClick={onNodeClick}
+
         fitView
       >
         <Background />

@@ -2,6 +2,7 @@ import PageHeader from '../components/PageHeader'
 import Card from '../components/Card'
 import WorkflowCanvas from '../components/workflow/WorkflowCanvas'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { useNodesState, type Node } from '@xyflow/react'
 import type { NodeType } from '../types/workflow'
 import { createWorkflowNode } from '../components/workflow/createWorkflowNode'
@@ -11,6 +12,7 @@ type WorkflowFlowNode = Node<{ label: string }>
 
 function WorkflowEditorPage() {
   const [nodes, setNodes, onNodesChange] = useNodesState<WorkflowFlowNode>([])
+  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
   const onAddNode = (nodeType: NodeType) => {
   const id = createNodeId()
   const workflowNode = createWorkflowNode(nodeType, id)
@@ -43,6 +45,8 @@ function WorkflowEditorPage() {
         <WorkflowCanvas
           nodes={nodes}
           onNodesChange={onNodesChange}
+            onNodeSelect={setSelectedNodeId}
+
         />
 
         <Link to="/workflows">Back to workflows</Link>
