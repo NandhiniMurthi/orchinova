@@ -1,23 +1,25 @@
-import { useCallback } from 'react'
+import { useCallback, } from 'react'
 import {
   addEdge,
   Background,
   Controls,
   ReactFlow,
   useEdgesState,
+  type OnNodesChange,
   type Connection,
   type Edge,
+  type Node,
 } from '@xyflow/react'
 
 import '@xyflow/react/dist/style.css'
 import './WorkflowCanvas.css'
-
+type WorkflowFlowNode = Node<{ label: string }>
 type WorkflowCanvasProps = {
   nodes: WorkflowFlowNode[]
   onNodesChange: OnNodesChange<WorkflowFlowNode>
 }
 
-
+     
 const initialEdges: Edge[] = [
   {
     id: 'trigger-http',
