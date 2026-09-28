@@ -16,7 +16,6 @@ function WorkflowsPage() {
        <EmptyState
   title="No workflows yet"
   description="Create your first workflow to automate a process."
-  action={<Link to="/workflows/new">Create workflow</Link>}
 /></Card>
     </main>
   )
