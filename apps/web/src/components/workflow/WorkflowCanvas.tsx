@@ -10,14 +10,18 @@ import {
   type Edge,
   type Node,
 } from '@xyflow/react'
-
+import type { WorkflowNode } from '../../types/workflow'
 import '@xyflow/react/dist/style.css'
 import './WorkflowCanvas.css'
-type WorkflowFlowNode = Node<{ label: string }>
+type WorkflowFlowNode = Node<{
+  label: string
+  workflowNode: WorkflowNode
+}>
 type WorkflowCanvasProps = {
   nodes: WorkflowFlowNode[]
   onNodesChange: OnNodesChange<WorkflowFlowNode>
   onNodeSelect: (nodeId: string) => void
+  
 }
 
      
@@ -27,6 +31,7 @@ function WorkflowCanvas({
   nodes,
   onNodesChange,
   onNodeSelect
+  
 }: WorkflowCanvasProps) {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
 
@@ -50,7 +55,7 @@ const onNodeClick = useCallback(
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-          onNodeClick={onNodeClick}
+        onNodeClick={onNodeClick}
 
         fitView
       >

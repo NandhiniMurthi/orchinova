@@ -4,12 +4,14 @@ import WorkflowCanvas from '../components/workflow/WorkflowCanvas'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useNodesState, type Node } from '@xyflow/react'
-import type { NodeType } from '../types/workflow'
 import { createWorkflowNode } from '../components/workflow/createWorkflowNode'
 import { createNodeId } from '../components/workflow/createNodeId'
 import NodePalette from '../components/workflow/NodePalette'
-type WorkflowFlowNode = Node<{ label: string }>
-
+import type { NodeType, WorkflowNode } from '../types/workflow'
+type WorkflowFlowNode = Node<{
+  label: string
+  workflowNode: WorkflowNode
+}>
 function WorkflowEditorPage() {
   const [nodes, setNodes, onNodesChange] = useNodesState<WorkflowFlowNode>([])
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
@@ -25,6 +27,7 @@ function WorkflowEditorPage() {
 },
     data: {
       label: workflowNode.name,
+      workflowNode,
     },
   }
 
