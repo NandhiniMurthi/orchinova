@@ -18,7 +18,9 @@ function WorkflowEditorPage() {
   const onAddNode = (nodeType: NodeType) => {
   const id = createNodeId()
   const workflowNode = createWorkflowNode(nodeType, id)
-
+  const selectedNode = nodes.find(
+  (node) => node.id === selectedNodeId,
+)
   const newNode: WorkflowFlowNode = {
     id: workflowNode.id,
     position: {
