@@ -8,6 +8,7 @@ import { createWorkflowNode } from '../components/workflow/createWorkflowNode'
 import { createNodeId } from '../components/workflow/createNodeId'
 import NodePalette from '../components/workflow/NodePalette'
 import type { NodeType, WorkflowNode } from '../types/workflow'
+import NodeConfigPanel from '../components/workflow/NodeConfigPanel'
 type WorkflowFlowNode = Node<{
   label: string
   workflowNode: WorkflowNode
@@ -15,12 +16,13 @@ type WorkflowFlowNode = Node<{
 function WorkflowEditorPage() {
   const [nodes, setNodes, onNodesChange] = useNodesState<WorkflowFlowNode>([])
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
-  const onAddNode = (nodeType: NodeType) => {
-  const id = createNodeId()
-  const workflowNode = createWorkflowNode(nodeType, id)
   const selectedNode = nodes.find(
   (node) => node.id === selectedNodeId,
 )
+  const onAddNode = (nodeType: NodeType) => {
+  const id = createNodeId()
+  const workflowNode = createWorkflowNode(nodeType, id)
+  
   const newNode: WorkflowFlowNode = {
     id: workflowNode.id,
     position: {
@@ -53,7 +55,15 @@ function WorkflowEditorPage() {
             onNodeSelect={setSelectedNodeId}
 
         />
+        <WorkflowCanvas
+  nodes={nodes}
+  onNodesChange={onNodesChange}
+  onNodeSelect={setSelectedNodeId}
+/>
 
+<NodeConfigPanel selectedNode={selectedNode} />
+
+<Link to="/workflows">Back to workflows</Link>
         <Link to="/workflows">Back to workflows</Link>
       </Card>
     </main>
