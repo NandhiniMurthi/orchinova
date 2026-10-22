@@ -9,6 +9,10 @@ type WorkflowFlowNode = Node<{
 
 type NodeConfigPanelProps = {
   selectedNode: WorkflowFlowNode | undefined
+  onConfigChange: (
+    nodeId: string,
+    config: WorkflowNode['config'],
+  ) => void
 }
 
 function NodeConfigPanel({ selectedNode }: NodeConfigPanelProps) {
