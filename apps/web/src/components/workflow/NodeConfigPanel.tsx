@@ -1,7 +1,6 @@
 
 import type { Node } from '@xyflow/react'
-import type { WorkflowNode } from '../../types/workflow'
-
+import type { WorkflowNode, TriggerNodeConfig } from '../../types/workflow'
 type WorkflowFlowNode = Node<{
   label: string
   workflowNode: WorkflowNode
@@ -39,7 +38,9 @@ function NodeConfigPanel({ selectedNode }: NodeConfigPanelProps) {
           <label htmlFor="triggerType">Trigger Type</label>
           <select
             id="triggerType"
-            value={workflowNode.config.triggerType}
+            value={
+  (workflowNode.config as TriggerNodeConfig).triggerType
+}
             disabled
           >
             <option value="manual">Manual</option>
