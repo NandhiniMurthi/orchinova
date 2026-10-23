@@ -37,6 +37,29 @@ function WorkflowEditorPage() {
 
   setNodes((currentNodes) => [...currentNodes, newNode])
 }
+const onConfigChange = (
+  nodeId: string,
+  config: WorkflowNode['config'],
+) => {
+  setNodes((currentNodes) =>
+    currentNodes.map((node) => {
+      if (node.id !== nodeId) {
+        return node
+      }
+
+      return {
+        ...node,
+        data: {
+          ...node.data,
+          workflowNode: {
+            ...node.data.workflowNode,
+            config,
+          },
+        },
+      }
+    }),
+  )
+}
   return (
     <main>
       <PageHeader
@@ -61,7 +84,8 @@ function WorkflowEditorPage() {
   onNodeSelect={setSelectedNodeId}
 />
 
-<NodeConfigPanel selectedNode={selectedNode} />
+<NodeConfigPanel selectedNode={selectedNode}   onConfigChange={onConfigChange}
+/>
 
 <Link to="/workflows">Back to workflows</Link>
         <Link to="/workflows">Back to workflows</Link>
