@@ -1,6 +1,6 @@
 
 import type { Node } from '@xyflow/react'
-import type { WorkflowNode, TriggerNodeConfig } from '../../types/workflow'
+import type { WorkflowNode, TriggerNodeConfig, TransformNodeConfig } from '../../types/workflow'
 type WorkflowFlowNode = Node<{
   label: string
   workflowNode: WorkflowNode
@@ -20,6 +20,8 @@ function NodeConfigPanel({ selectedNode }: NodeConfigPanelProps) {
       <aside>
         <h3>Node Configuration</h3>
         <p>Select a node to configure it.</p>
+
+        
       </aside>
     )
   }
