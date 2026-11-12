@@ -1,6 +1,6 @@
 
 import type { Node } from '@xyflow/react'
-import type { WorkflowNode, TriggerNodeConfig, TransformNodeConfig } from '../../types/workflow'
+import type { WorkflowNode, TriggerNodeConfig, TransformNodeConfig, HttpRequestNodeConfig, } from '../../types/workflow'
 type WorkflowFlowNode = Node<{
   label: string
   workflowNode: WorkflowNode
@@ -14,8 +14,11 @@ type NodeConfigPanelProps = {
   ) => void
 }
 
-function NodeConfigPanel({ selectedNode }: NodeConfigPanelProps) {
-  if (!selectedNode) {
+function NodeConfigPanel({
+  selectedNode,
+  onConfigChange,
+}: NodeConfigPanelProps) {
+    if (!selectedNode) {
     return (
       <aside>
         <h3>Node Configuration</h3>
@@ -49,6 +52,75 @@ function NodeConfigPanel({ selectedNode }: NodeConfigPanelProps) {
           </select>
         </section>
       )}
+
+
+      {workflowNode.type === 'httpRequest' && (
+        <section>
+          <h4>HTTP Request Settings</h4>
+
+          <label htmlFor="httpMethod">Method</label>
+          <select
+            id="httpMethod"
+            value={
+              (workflowNode.config as HttpRequestNodeConfig).method
+            }
+            onChange={(event) => {
+              onConfigChange(selectedNode.id, {
+                ...(workflowNode.config as HttpRequestNodeConfig),
+                method: event.target.value as HttpRequestNodeConfig['method'],
+              })
+            }}
+          >
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="PATCH">PATCH</option>
+            <option value="DELETE">DELETE</option>
+          </select>
+
+          <label htmlFor="httpUrl">URL</label>
+          <input
+            id="httpUrl"
+            type="url"
+            value={
+              (workflowNode.config as HttpRequestNodeConfig).url
+            }
+            placeholder="https://example.com"
+            onChange={(event) => {
+              onConfigChange(selectedNode.id, {
+                ...(workflowNode.config as HttpRequestNodeConfig),
+                url: event.target.value,
+              })
+            }}
+          />
+
+          {!(workflowNode.config as HttpRequestNodeConfig).url.trim() && (
+            <p role="alert">URL is required.</p>
+          )}
+        </section>
+      )}
+
+
+      
+      {workflowNode.type === 'transform' && (
+        <section>
+          <h4>Transform Settings</h4>
+
+          <label htmlFor="transformOperation">Operation</label>
+          <select
+            id="transformOperation"
+            value={
+              (workflowNode.config as TransformNodeConfig).operation
+            }
+            disabled
+          >
+            <option value="map">Map</option>
+          </select>
+        </section>
+      )}
+
+
+
     </aside>
   )
 }
