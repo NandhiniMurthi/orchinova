@@ -78,16 +78,9 @@ const onConfigChange = (
             onNodeSelect={setSelectedNodeId}
 
         />
-        <WorkflowCanvas
-  nodes={nodes}
-  onNodesChange={onNodesChange}
-  onNodeSelect={setSelectedNodeId}
-/>
-
+        
 <NodeConfigPanel selectedNode={selectedNode}   onConfigChange={onConfigChange}
 />
-
-<Link to="/workflows">Back to workflows</Link>
         <Link to="/workflows">Back to workflows</Link>
       </Card>
     </main>

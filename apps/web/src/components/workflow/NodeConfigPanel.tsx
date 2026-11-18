@@ -1,6 +1,6 @@
 
 import type { Node } from '@xyflow/react'
-import type { WorkflowNode, TriggerNodeConfig, TransformNodeConfig, HttpRequestNodeConfig, } from '../../types/workflow'
+import type { WorkflowNode, TriggerNodeConfig, TransformNodeConfig, HttpRequestNodeConfig } from '../../types/workflow'
 type WorkflowFlowNode = Node<{
   label: string
   workflowNode: WorkflowNode
